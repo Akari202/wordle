@@ -55,9 +55,8 @@ fn grade_word(guess: &Vec<u32>, word: &Vec<u32>) -> Result<u32, String> {
     Ok(clue)
 }
 
-fn get_grades(word: String) -> Result<Vec<u32>, String> {
+fn get_grades(word: String, words: Vec<String>) -> Result<Vec<u32>, String> {
     let word_array = word_to_int_array(&word);
-    let words = load_words_from_file("assets/wordle_answer_words").unwrap();
     let words_array: Vec<Vec<u32>> = words
         .iter()
         .map(|i| word_to_int_array(i))
@@ -95,6 +94,11 @@ fn main() {
     env_logger::Builder::new()
         .filter_level(args.verbose.log_level_filter())
         .init();
-    let first_grade = get_emojis(get_grades(args.guess_one).unwrap()).unwrap();
+    let first_grade = get_emojis(
+        get_grades(
+            args.guess_one,
+            load_words_from_file("assets/wordle_answer_words").unwrap()
+        ).unwrap()
+    ).unwrap();
     info!("{:?}", first_grade);
 }
