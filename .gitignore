@@ -1,2 +1,5 @@
 /target
 pattern_matrix.ron
+/dist/
+/node_modules/
+/.parcel-cache/

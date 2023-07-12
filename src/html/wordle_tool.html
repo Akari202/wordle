@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="/src/css/index.css" type="text/css">
+    <link rel="stylesheet" href="/src/css/wordle_tool.css" type="text/css">
+</head>
+<body>
+<ul>
+    <li><a href="/src/html/index.html">Home</a></li>
+    <li><a href="/src/html/wordle.html">Wordle</a></li>
+    <li><a class="active" href="/src/html/wordle_tool.html">Wordle Helper</a></li>
+    <li><a href="/src/html/primel.html">Primel</a></li>
+</ul>
+<script type="module" src="/src/js/wordle_tool.js"></script>
+<div class="wordle">
+    <div class="row1"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="1">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="1">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="1">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="1">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="1">
+    </label></div>
+    <div class="row2"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="2">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="2">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="2">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="2">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="2">
+    </label></div>
+    <div class="row3"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="3">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="3">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="3">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="3">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="3">
+    </label></div>
+    <div class="row4"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="4">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="4">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="4">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="4">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="4">
+    </label></div>
+    <div class="row5"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="5">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="5">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="5">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="5">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="5">
+    </label></div>
+    <div class="row6"><label>
+        <input class="input" maxlength="1" type="text" word_pos="1" row_pos="6">
+        <input class="input" maxlength="1" type="text" word_pos="2" row_pos="6">
+        <input class="input" maxlength="1" type="text" word_pos="3" row_pos="6">
+        <input class="input" maxlength="1" type="text" word_pos="4" row_pos="6">
+        <input class="input" maxlength="1" type="text" word_pos="5" row_pos="6">
+    </label></div>
+</div>
+<div class="answers">
+    <div id="win_modal" class="modal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <button class="replay">Play Again</button>
+                <button class="copy">Save Game</button>
+            </div>
+            <div class="modal_body">
+                <div class="modal_game"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
