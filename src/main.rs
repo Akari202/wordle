@@ -231,8 +231,9 @@ fn perf_test(words: Vec<String>) {
 fn main() {
     let all_words: Vec<String> = load_words_from_file("assets/wordle_answer_words").unwrap();
 
+    // let all_words: Vec<String> = load_words_from_file("assets/all_wordle_words").unwrap();
     // perf_test(all_words.clone());
-    
+
     println!("What is your first guess?");
     let first_guess: String = read!();
     println!("What grade did {} get?", first_guess);
