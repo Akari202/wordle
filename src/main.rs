@@ -6,6 +6,7 @@ use std::io::Result;
 use std::io::BufRead;
 use std::io::BufReader;
 use std::path::Path;
+use std::time::{Duration, Instant};
 use text_io::read;
 use progress_bar::*;
 
@@ -216,10 +217,22 @@ fn find_best_guess(guess_pool: &Vec<usize>, words: &Vec<String>) -> Result<(usiz
     finalize_progress_bar();
     Ok((best_guess, smallest_avg))
 }
+fn perf_test(words: Vec<String>) {
+    let guess_pool: Vec<usize> = (0..words.len()).collect();
+    let mut perf_times: Vec<Duration> = Vec::new();
+    for _ in 0..5 {
+        let perf_start: Instant = Instant::now();
+        let _ = find_best_guess(&guess_pool, &words);
+        perf_times.push(perf_start.elapsed());
+    }
+    println!("Average time: {:?}", perf_times.iter().sum::<Duration>() / perf_times.len() as u32);
+}
 
 fn main() {
     let all_words: Vec<String> = load_words_from_file("assets/wordle_answer_words").unwrap();
 
+    // perf_test(all_words.clone());
+    
     println!("What is your first guess?");
     let first_guess: String = read!();
     println!("What grade did {} get?", first_guess);
