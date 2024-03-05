@@ -2,6 +2,7 @@ use std::fmt::{Display, Formatter};
 use crate::grade::Grade;
 use crate::group::{AllGroups, Group};
 use crate::word::{AllWords, Word};
+use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Wordle {
@@ -36,8 +37,9 @@ impl AllWordles {
         self.wordles.len()
     }
 
-    pub fn group_by_grade(&self) -> AllGroups {
+    pub fn group_by_grade(&mut self) -> AllGroups {
         let mut groups: Vec<Group> = Vec::new();
+        self.wordles.sort_by_key(|wordle| wordle.grade.get_grade());
         for wordle in &self.wordles {
             let mut found = false;
             for group in &mut groups {
